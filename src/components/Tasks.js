@@ -2,7 +2,7 @@ import Task from "./Task"
 
 
 
-function Tasks() {    
+function Tasks({onDelete}) {    
     let tasks = [
         {
             id: 1,
@@ -27,11 +27,12 @@ function Tasks() {
         //   for task in tasks
         //     f'<li>{task.name}</li>'
     <>    
-    {tasks.map((task) => <Task key={task.id} task={task}/>)}
+    {tasks.map((task) => <Task key={task.id} task={task} onDelete={onDelete}/>)}
     {/* {tasks.map((i) => <li>{i.name}</li>)}
     {tasks.map(getName)} */}
     </>
   )
 }
+
 
 export default Tasks
