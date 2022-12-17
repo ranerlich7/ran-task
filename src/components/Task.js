@@ -1,7 +1,12 @@
 
-function Task({content}) {
+function Task({task}) {
   return (
-    <div >Task {content}</div>
+      
+    <div className="task">
+        <h3>Task {task.name}</h3>
+    <p>{task.date}</p>
+    </div>
+    
   )
 }
 
