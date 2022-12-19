@@ -1,28 +1,7 @@
 import Task from "./Task"
 
 
-
-function Tasks({onDelete}) {    
-    let tasks = [
-        {
-            id: 1,
-            name:"Cleaning",
-            date:"Monday 9pm"
-    
-        },
-        {
-            id: 2,
-            name:"Ironing",
-            date:"Sunday 9pm"
-    
-        },
-        {
-            id: 3,
-            name:"Shopping",
-            date:"Saturday 9pm"
-    
-        }
-    ]
+function Tasks({onDelete, tasks}) {    
     return (
         //   for task in tasks
         //     f'<li>{task.name}</li>'
