@@ -24,12 +24,8 @@ function Tasks() {
         }
     ]
     return (
-        //   for task in tasks
-        //     f'<li>{task.name}</li>'
     <>    
-    {tasks.map((i) => <Task key={i.id} content={i.name} date={i.date}/>)}
-    {/* {tasks.map((i) => <li>{i.name}</li>)}
-    {tasks.map(getName)} */}
+    {tasks.map((task) => <Task key={task.id} content={task.name} date={task.date}/>)}
     </>
   )
 }
