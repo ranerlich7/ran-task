@@ -2,7 +2,7 @@ import Task from "./Task"
 
 
 
-function Tasks() {    
+function Tasks({odFunciton, counter}) {    
     let tasks = [
         {
             id: 1,
@@ -25,7 +25,7 @@ function Tasks() {
     ]
     return (
     <>    
-    {tasks.map((task) => <Task key={task.id} content={task.name} icon="bath" date={task.date}/>)}
+    {tasks.map((task) => <Task key={task.id} content={task.name} date={task.date} odFunciton={odFunciton} counter={counter}/>)}
     </>
   )
 }

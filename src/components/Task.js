@@ -1,5 +1,4 @@
-import { FaTimes, FaBath } from "react-icons/fa"
-import { useState } from 'react';
+import { FaTimes } from "react-icons/fa"
 
 // let counter = 1
 // function myClick() {
@@ -7,12 +6,10 @@ import { useState } from 'react';
 //     counter = counter + 1;
 // }
 
-function Task({ content, date, icon }) {
-    const [counter,ranFunction] = useState(0)
-
+function Task({ content, date, counter, odFunciton }) {
     return (
             <div className="task">                
-                <h3>{content} <FaTimes onClick={() => ranFunction(counter+1)} color="red" /> {counter}</h3>
+                <h3>{content} <FaTimes onClick={odFunciton} color="red" /> {counter}</h3>
                 <p>{date}</p>
             </div>
         )
