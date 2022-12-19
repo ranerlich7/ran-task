@@ -27,7 +27,7 @@ function Tasks() {
         //   for task in tasks
         //     f'<li>{task.name}</li>'
     <>    
-    {tasks.map((i) => <Task key={i.id} content={i.name}/>)}
+    {tasks.map((i) => <Task key={i.id} content={i.name} date={I.date}/>)}
     {/* {tasks.map((i) => <li>{i.name}</li>)}
     {tasks.map(getName)} */}
     </>
