@@ -25,7 +25,7 @@ function Tasks() {
     ]
     return (
     <>    
-    {tasks.map((task) => <Task key={task.id} content={task.name} date={task.date}/>)}
+    {tasks.map((task) => <Task key={task.id} content={task.name} icon="bath" date={task.date}/>)}
     </>
   )
 }
