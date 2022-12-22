@@ -30,7 +30,7 @@ function App() {
     console.log(counter)
   }
 
-  function deleteTask() {
+  function deleteTask(taskID) {
     setTasks([])
   }
 

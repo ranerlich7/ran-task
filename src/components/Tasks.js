@@ -2,11 +2,10 @@ import Task from "./Task"
 
 
 
-function Tasks({taskClick, counter, deleteTask, tasks}) {    
+function Tasks({deleteTask, tasks}) {    
     return (
     <>    
-    <button onClick={deleteTask}>Del All</button>
-    {tasks.map((task) => <Task key={task.id} content={task.name} date={task.date} taskClick={taskClick} counter={counter}/>)}
+    {tasks.map((task) => <Task key={task.id} deleteTask={deleteTask} task={task}/>)}
     </>
   )
 }
