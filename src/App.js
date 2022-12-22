@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AddTask from './components/AddTask';
 
 function App() {
-  const [counter, setCounter] = useState(0)
+  // const [counter, setCounter] = useState(0)
   const [tasks, setTasks] = useState([
       {
         id: 1,
@@ -38,6 +38,10 @@ function App() {
     setTasks(()=> tasks.filter((task)=>task.id === taskID ? null : task))
   }
 
+  function addTask(name, date, reminder){
+    setTasks([...tasks,{id:tasks.length + 1, name:name, date:date, reminder:reminder}])
+  }
+
   const toggleReminder = (id) => {
     setTasks(tasks.map( task => task.id === id ? {...task, reminder:!task.reminder} : task))
   }
@@ -46,8 +50,8 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <AddTask/>
-      <Tasks counter={counter} tasks={tasks} deleteTask={deleteTask} toggleReminder={toggleReminder}/>
+      <AddTask addTask={addTask}/>
+      <Tasks tasks={tasks}  deleteTask={deleteTask} toggleReminder={toggleReminder}/>
     </div>
   );
 }
