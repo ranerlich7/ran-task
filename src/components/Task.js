@@ -6,15 +6,14 @@ import { FaTimes } from "react-icons/fa"
 //     counter = counter + 1;
 // }
 
-function Task({  task, deleteTask }) {
+function Task({  task, deleteTask, toggleReminder }) {
     return (
-            <div className="task">                
+            <div className={task.reminder ? 'task reminder': 'task'} onDoubleClick={() => toggleReminder(task.id)}>                
                 <h3>{task.name} {' '}<FaTimes onClick={() => deleteTask(task.id)} style={{ color: 'red', cursor: 'pointer' }}></FaTimes></h3>
                 <p>{task.date}</p>
             </div>
         )
     }
-
 
 
     export default Task
