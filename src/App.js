@@ -31,7 +31,7 @@ function App() {
   }
 
   function deleteTask(taskID) {
-    setTasks([])
+    setTasks(()=> tasks.filter((task)=>task.id === taskID ? null : task))
   }
 
   return (

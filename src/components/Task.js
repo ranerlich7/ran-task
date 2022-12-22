@@ -9,7 +9,7 @@ import { FaTimes } from "react-icons/fa"
 function Task({  task, deleteTask }) {
     return (
             <div className="task">                
-                <h3>{task.content} <FaTimes onClick={() => deleteTask(task.id)} color="red" /></h3>
+                <h3>{task.name} {' '}<FaTimes onClick={() => deleteTask(task.id)} style={{ color: 'red', cursor: 'pointer' }}></FaTimes></h3>
                 <p>{task.date}</p>
             </div>
         )
