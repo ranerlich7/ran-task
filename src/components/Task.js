@@ -6,11 +6,11 @@ import { FaTimes } from "react-icons/fa"
 //     counter = counter + 1;
 // }
 
-function Task({ content, date, counter, odFunciton }) {
+function Task({ task, onDelete }) {
     return (
             <div className="task">                
-                <h3>{content} <FaTimes onClick={odFunciton} color="red" /> {counter}</h3>
-                <p>{date}</p>
+                <h3>{task.name} <FaTimes onClick={()=>onDelete(task.id)} color="red" /></h3>
+                <p>{task.date}</p>
             </div>
         )
     }
