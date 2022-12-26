@@ -7,19 +7,22 @@ function App() {
         {
             id: 1,
             name:"Cleaning",
-            date:"Monday 9pm"
+            date:"Monday 9pm",
+            reminder:false
     
         },
         {
             id: 2,
             name:"Ironing",
-            date:"Sunday 9pm"
+            date:"Sunday 9pm",
+            reminder:false
     
         },
         {
             id: 3,
             name:"Shopping",
-            date:"Saturday 9pm"
+            date:"Saturday 9pm",
+            reminder:false
     
         }
     ])
@@ -28,11 +31,13 @@ function App() {
         setTasks(tasks.filter(task => task.id !== id))
     }
 
+    function toggleReminder(id){
+        setTasks(tasks.map(task => task.id === id ? {...task, reminder: !task.reminder} : task))
+    }
   return (      
       <div className="container">
       <Header/>
-      <Tasks tasks={tasks} onDelete={onDelete}/>
-      <button onClick={()=>onDelete(2)}>RAn's Click</button>
+      <Tasks tasks={tasks} onDelete={onDelete} toggleReminder={toggleReminder}/>
       </div>
   );
 }
