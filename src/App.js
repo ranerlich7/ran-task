@@ -3,17 +3,12 @@ import Tasks from './components/Tasks';
 import { useState } from 'react';
 
 function App() {
-    const [counter,ranFunction] = useState(0)
 
-    function odFunciton() {
-        ranFunction(counter+1)
-        console.log(counter)        
-    }
 
-  return (
+  return (      
       <div className="container">
       <Header/>
-      <Tasks counter={counter} odFunciton={odFunciton}/>
+      <Tasks />
       </div>
   );
 }
