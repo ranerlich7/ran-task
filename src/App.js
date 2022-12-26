@@ -24,11 +24,20 @@ function App() {
         }
     ])
 
+    function onDelete() {
+        setTasks([{
+            id: 3,
+            name:"Ran",
+            date:"Ran 9pm"
+    
+        }])
+    }
 
   return (      
       <div className="container">
       <Header/>
       <Tasks tasks={tasks}/>
+      <button onClick={onDelete}>RAn's Click</button>
       </div>
   );
 }
