@@ -13,7 +13,10 @@ function AddTask({addTask}) {
 
     function mySubmit(e) {
         e.preventDefault()
-        addTask(taskName, taskTime, reminder)
+        addTask({name:taskName, time:taskTime, reminder})
+        setTaskTime('')
+        setTaskName('')
+        setReminder(false)
         
     }
 
@@ -25,11 +28,11 @@ function AddTask({addTask}) {
             </div>
             <div className="form-control">
                 <label>Task time</label>
-                <input type="text" onChange={e => setTaskTime(e.target.value)}></input>
+                <input type="text" onChange={e => setTaskTime(e.target.value)} value={taskTime}></input>
             </div>
             <div className="form-control form-control-check">
                 <label>Task reminder</label>
-                <input type="checkbox" onChange={(e) => setReminder(e.currentTarget.checked)}></input>
+                <input type="checkbox" onChange={(e) => setReminder(e.currentTarget.checked)} checked={reminder}></input>
             </div>
             <div className="form-control">
                 <input className="btn btn-block" type="submit" value="Submit"></input>

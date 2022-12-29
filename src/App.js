@@ -4,6 +4,7 @@ import { useState } from 'react';
 import AddTask from './components/AddTask';
 
 function App() {
+    const [showAddForm,setShowAddForm] = useState(false)
     const [tasks,setTasks] = useState([
         {
             id: 1,
@@ -46,11 +47,15 @@ function App() {
         }])
         
     }
+    
+    function toggleForm() {
+        setShowAddForm(!showAddForm)                
+    }
 
   return (      
       <div className="container">
-      <Header/>
-      <AddTask addTask={addTask}/>
+      <Header toggleForm={toggleForm} showAddForm={showAddForm}/>
+      {showAddForm && <AddTask addTask={addTask}/>}
       <Tasks tasks={tasks} onDelete={onDelete} toggleReminder={toggleReminder}/>
       </div>
   );
