@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types'
 
-function myalert(onc){
-    onc ? alert('are you ok?') : console.log(onc)
-}
 
 function Button({name, color ,onAdd}) {
   return (
