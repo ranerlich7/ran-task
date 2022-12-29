@@ -4,9 +4,9 @@ function myalert(onc){
     onc ? alert('are you ok?') : console.log(onc)
 }
 
-function Button({name, color, onc}) {
+function Button({name, color ,onAdd}) {
   return (
-    <button onClick={()=>myalert(onc)} style={{backgroundColor:color}} className="btn">{name}</button>
+    <button onClick={onAdd} style={{backgroundColor:color}} className="btn">{name}</button>
   )
 }
 

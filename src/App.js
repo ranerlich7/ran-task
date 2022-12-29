@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AddTask from './components/AddTask';
 
 function App() {
-  // const [counter, setCounter] = useState(0)
+  const [showAddTask,setShowAddTask] = useState(false)
   const [tasks, setTasks] = useState([
       {
         id: 1,
@@ -45,12 +45,16 @@ function App() {
   const toggleReminder = (id) => {
     setTasks(tasks.map( task => task.id === id ? {...task, reminder:!task.reminder} : task))
   }
+
+  function onAdd() {
+      setShowAddTask(!showAddTask)
+  }
  
 
   return (
     <div className="container">
-      <Header />
-      <AddTask addTask={addTask}/>
+      <Header onAdd={onAdd}/>
+      {showAddTask && <AddTask addTask={addTask}/>}
       <Tasks tasks={tasks}  deleteTask={deleteTask} toggleReminder={toggleReminder}/>
     </div>
   );

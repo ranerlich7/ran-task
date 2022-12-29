@@ -1,10 +1,11 @@
 import Button from "./Button"
 
-function Header() {
+function Header({onAdd}) {
+  
   return (
     <header className="header">
         <h1>Ran's Header</h1>
-        <Button name="Add task" color="black" onc={false}></Button>
+        <Button onAdd={onAdd} name="Add task" color="black" onc={false}/>
 
     </header>
   )
