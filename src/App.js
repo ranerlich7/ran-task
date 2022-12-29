@@ -35,10 +35,22 @@ function App() {
     function toggleReminder(id){
         setTasks(tasks.map(task => task.id === id ? {...task, reminder: !task.reminder} : task))
     }
+
+    function addTask(name, date, reminder) {
+        setTasks([...tasks,{
+            id: tasks.length + 1,
+            name:name,
+            date:date,
+            reminder:reminder
+    
+        }])
+        
+    }
+
   return (      
       <div className="container">
       <Header/>
-      <AddTask/>
+      <AddTask addTask={addTask}/>
       <Tasks tasks={tasks} onDelete={onDelete} toggleReminder={toggleReminder}/>
       </div>
   );
