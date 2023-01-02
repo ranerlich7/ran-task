@@ -13,7 +13,7 @@ function AddTask({addTask}) {
 
     function mySubmit(e) {
         e.preventDefault()
-        addTask({name:taskName, time:taskTime, reminder})
+        addTask(taskName, taskTime, reminder)
         setTaskTime('')
         setTaskName('')
         setReminder(false)
