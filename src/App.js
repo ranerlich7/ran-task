@@ -31,7 +31,8 @@ function App() {
   }
 
   function toggleReminder(task) {
-    let updatedTask = {...task,
+    let updatedTask = {
+      ...task,
       reminder: !task.reminder
 
     }
@@ -73,17 +74,21 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className="container">
-      <Header toggleForm={toggleForm} showAddForm={showAddForm} />
-      {showAddForm && <AddTask addTask={addTask} />}
-      <Tasks tasks={tasks} onDelete={onDelete} toggleReminder={toggleReminder} />
-      <Routes>
-      <Route path="/about" element={<About/>} />
-      </Routes>
+      <div className="container">
+        <Header toggleForm={toggleForm} showAddForm={showAddForm} />
+        <Routes>
+          <Route path="/" element={
+            <>
+              {showAddForm && <AddTask addTask={addTask} />}
+              <Tasks tasks={tasks} onDelete={onDelete} toggleReminder={toggleReminder} />
+            </>}
+          />
+          <Route path="/about" element={<About />} />
+        </Routes>
 
-      <Footer/>
-      
-    </div>
+        <Footer />
+
+      </div>
     </BrowserRouter>
   );
 }
