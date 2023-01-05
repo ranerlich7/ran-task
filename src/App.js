@@ -2,6 +2,9 @@ import Header from './components/Header';
 import Tasks from './components/Tasks';
 import { useEffect, useState } from 'react';
 import AddTask from './components/AddTask';
+import Footer from './components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import About from './components/About';
 
 function App() {
   const [showAddForm, setShowAddForm] = useState(false)
@@ -69,11 +72,19 @@ function App() {
   }
 
   return (
+    <BrowserRouter>
     <div className="container">
       <Header toggleForm={toggleForm} showAddForm={showAddForm} />
       {showAddForm && <AddTask addTask={addTask} />}
       <Tasks tasks={tasks} onDelete={onDelete} toggleReminder={toggleReminder} />
+      <Routes>
+      <Route path="/about" element={<About/>} />
+      </Routes>
+
+      <Footer/>
+      
     </div>
+    </BrowserRouter>
   );
 }
 
