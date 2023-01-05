@@ -27,12 +27,6 @@
       "name": "aaa",
       "date": "asfd",
       "reminder": true
-    },
-    {
-      "id": 13,
-      "name": "",
-      "date": "",
-      "reminder": false
     }
   ]
 }
