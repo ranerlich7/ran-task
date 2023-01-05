@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Tasks from './components/Tasks';
 import { useEffect, useState } from 'react';
 import AddTask from './components/AddTask';
+import axios from 'axios';
 
 function App() {
     const [showAddForm, setShowAddForm] = useState(false)
@@ -28,13 +29,9 @@ function App() {
     }
 
     function toggleReminder(task) {
-        fetch(`http://localhost:5000/tasks/${task.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({...task, reminder:!task.reminder})
-        });
+        axios.put(`http://localhost:5000/tasks/${task.id}`,
+        {...task, reminder:!task.reminder})
+        
         // if this code was in python:
         // for temptask in tasks:
         // if temptask.id == task.id:
