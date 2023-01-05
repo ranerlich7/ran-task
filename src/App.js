@@ -28,10 +28,7 @@ function App() {
   }
 
   function toggleReminder(task) {
-    let updatedTask = {
-      id: task.id,
-      name: task.name,
-      date: task.date,
+    let updatedTask = {...task,
       reminder: !task.reminder
 
     }
