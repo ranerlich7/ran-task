@@ -27,8 +27,22 @@ function App() {
         setTasks(tasks.filter(task => task.id !== id))
     }
 
-    function toggleReminder(id) {
-        setTasks(tasks.map(task => task.id === id ? { ...task, reminder: !task.reminder } : task))
+    function toggleReminder(task) {
+        fetch(`http://localhost:5000/tasks/${task.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({...task, reminder:!task.reminder})
+        });
+        // if this code was in python:
+        // for temptask in tasks:
+        // if temptask.id == task.id:
+        //     temptask.reminder = !temptask.reminder
+        // else:
+        //     temptask # do nothing
+
+        setTasks(tasks.map(temptask => temptask.id === task.id ? { ...temptask, reminder: !temptask.reminder } : temptask))
     }
 
     function addTask(name, date, reminder) {

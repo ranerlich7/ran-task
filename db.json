@@ -12,7 +12,7 @@
   "tasks": [
     {
       "id": 4,
-      "name": "Learning react",
+      "name": "NEW!!! Learning react",
       "date": "Monday 9pm",
       "reminder": false
     },
@@ -33,6 +33,12 @@
       "name": "ran",
       "date": "ran",
       "reminder": false
+    },
+    {
+      "id": 14,
+      "name": "new task",
+      "date": "thursday 9pm",
+      "reminder": true
     }
   ]
 }
