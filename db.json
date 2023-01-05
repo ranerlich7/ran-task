@@ -23,15 +23,15 @@
       "reminder": true
     },
     {
-      "id": 3,
-      "name": "The lesson is almost over",
-      "date": "monday 9:35",
+      "id": 12,
+      "name": "aaa",
+      "date": "asfd",
       "reminder": true
     },
     {
       "id": 13,
-      "name": "ran",
-      "date": "ran",
+      "name": "",
+      "date": "",
       "reminder": false
     }
   ]

@@ -5,7 +5,9 @@ import AddTask from './components/AddTask';
 
 function App() {
     const [showAddForm, setShowAddForm] = useState(false)
+    const [tasks, setTasks] = useState([])
 
+    console.log('rendering component')
 
     useEffect(() => {
         // promise
@@ -13,16 +15,14 @@ function App() {
         fetch("http://localhost:5000/tasks")
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
                 setTasks(data)
             });
-        console.log('ran ran')
-    }, [])
+        console.log('useEffect')
+    }, [tasks[0].reminder])
 
-    const [tasks, setTasks] = useState([])
 
     function onDelete(id) {
-        fetch("http://localhost:5000/tasks/" + id, { method: 'DELETE' })
+        fetch(`http://localhost:5000/tasks/${id}` , { method: 'DELETE' })
 
         setTasks(tasks.filter(task => task.id !== id))
     }
