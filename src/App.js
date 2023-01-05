@@ -3,6 +3,9 @@ import Tasks from './components/Tasks';
 import { useEffect, useState } from 'react';
 import AddTask from './components/AddTask';
 import axios from 'axios';
+import About from './components/About';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer';
 
 function App() {
     const [showAddForm, setShowAddForm] = useState(false)
@@ -34,8 +37,8 @@ function App() {
     function toggleReminder(task) {
         setRanTest(ranTest + 1)
         axios.put(`http://localhost:5000/tasks/${task.id}`,
-        {...task, reminder:!task.reminder})
-        
+            { ...task, reminder: !task.reminder })
+
         // if this code was in python:
         // for temptask in tasks:
         // if temptask.id == task.id:
@@ -71,11 +74,18 @@ function App() {
     }
 
     return (
-        <div className="container">
-            <Header toggleForm={toggleForm} showAddForm={showAddForm} />
-            {showAddForm && <AddTask addTask={addTask} />}
-            <Tasks tasks={tasks} onDelete={onDelete} toggleReminder={toggleReminder} />
-        </div>
+        <BrowserRouter>
+            <div className="container">
+                <Header toggleForm={toggleForm} showAddForm={showAddForm} />
+                {showAddForm && <AddTask addTask={addTask} />}
+                <Routes>
+                    <Route path="/" element={
+                        <Tasks tasks={tasks} onDelete={onDelete} toggleReminder={toggleReminder} />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+                <Footer />
+            </div>
+        </BrowserRouter>
     );
 }
 
