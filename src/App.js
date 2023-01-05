@@ -7,6 +7,10 @@ import axios from 'axios';
 function App() {
     const [showAddForm, setShowAddForm] = useState(false)
 
+    console.log('rendering!')
+
+    const [tasks, setTasks] = useState([])
+    const [ranTest, setRanTest] = useState(1)
 
     useEffect(() => {
         // promise
@@ -14,13 +18,12 @@ function App() {
         fetch("http://localhost:5000/tasks")
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
+                // console.log(data)
                 setTasks(data)
             });
-        console.log('ran ran')
-    }, [])
+        console.log('use effect called!')
+    }, [ranTest])
 
-    const [tasks, setTasks] = useState([])
 
     function onDelete(id) {
         fetch("http://localhost:5000/tasks/" + id, { method: 'DELETE' })
@@ -29,6 +32,7 @@ function App() {
     }
 
     function toggleReminder(task) {
+        setRanTest(ranTest + 1)
         axios.put(`http://localhost:5000/tasks/${task.id}`,
         {...task, reminder:!task.reminder})
         
